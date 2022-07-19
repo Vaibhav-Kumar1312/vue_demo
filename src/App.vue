@@ -1,17 +1,31 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <img
+    alt="Vue logo"
+    src="./assets/logo.png"
+  >
+  <HelloWorld :msg="message" />
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script lang="ts">
+import { defineComponent } from "vue";
+import HelloWorld from "./components/HelloWorld.vue";
 
-export default {
-  name: 'App',
+export default defineComponent({
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    HelloWorld,
+  },
+  data: () => ({
+    message: "Welcome to Your Vue.js + TypeScript App",
+  }),
+  methods: {
+    printHello(count: number) {
+      for (let i = 0; i < count; i += 1) {
+        console.log("Hello there");
+      }
+    },
+  },
+});
 </script>
 
 <style>
